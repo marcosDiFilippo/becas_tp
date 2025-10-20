@@ -5,7 +5,7 @@ public class Materia {
 
 	private String nombre;
 	private ArrayList<Alumno> alumnos;
-	
+
 	public Materia(String nombre) {
 		super();
 		this.nombre = nombre;
@@ -32,25 +32,19 @@ public class Materia {
 	public String toString() {
 		return "Materia [nombre=" + nombre + ", alumnos=" + alumnos + "]";
 	}
-	
+
 	public Alumno mejorNotaMateria() {
-		Alumno alumnoNotaMasAlta = this.alumnos.stream()
-				.max(Comparator.comparingDouble(Alumno::getNota))
-				.orElse(null);
+		Alumno alumnoNotaMasAlta = this.alumnos.stream().max(Comparator.comparingDouble(Alumno::getNota)).orElse(null);
 		return alumnoNotaMasAlta;
 	}
 
 	public Alumno peorNotaAlumno() {
-		Alumno alumnoNotaMasBaja = this.alumnos.stream()
-				.min(Comparator.comparingDouble(Alumno::getNota))
-				.orElse(null);
+		Alumno alumnoNotaMasBaja = this.alumnos.stream().min(Comparator.comparingDouble(Alumno::getNota)).orElse(null);
 		return alumnoNotaMasBaja;
 	}
-	
+
 	public double promedioNotas() {
-		double promedioNotas = this.alumnos.stream()
-				.mapToDouble(Alumno::getNota).average()
-				.orElse(0);
+		double promedioNotas = this.alumnos.stream().mapToDouble(Alumno::getNota).average().orElse(0);
 		return promedioNotas;
 	}
 
