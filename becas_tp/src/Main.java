@@ -121,6 +121,7 @@ public class Main {
 		}
 
 		JOptionPane.showMessageDialog(null, pNotaMateria);
-
+		
+		JOptionPane.showMessageDialog(null, "Gracias por usar el programa!");
 	}
 }
